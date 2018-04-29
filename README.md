@@ -1,0 +1,2 @@
+# LaTeX Template TIS-TN Rapportage
+Een template in LaTeX welke gebruikt kan worden voor de rapportage bij de opleiding Technische Natuurkunde aan de Haagse Hogeschool te Delft. Het originele template komt van de Technische Universiteit Delft af. Deze is vrij te downloaden via: https://www.tudelft.nl/huisstijl/downloads/. Dit template is aangepast naar de huisstijl van de Haagse Hogeschool. Ook bevat het voorbeelden over het gebruik van LaTeX.

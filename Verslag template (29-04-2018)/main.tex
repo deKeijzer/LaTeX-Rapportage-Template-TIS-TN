@@ -1,0 +1,87 @@
+\documentclass[whitelogo]{template/tudelft-report}
+\usepackage[utf8]{inputenc}
+\usepackage{changes}
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage{listings}
+
+%bibliography imports
+
+
+\begin{document}
+%% Use Roman numerals for the page numbers of the title pages and table of
+%% contents.
+\frontmatter
+
+%% Uncomment following 19 lines for a cover with a picture on the lower half only
+%\title[tudelft-white]{Title}
+%\subtitle[tudelft-cyan]{Optional subtitle}
+%\author[tudelft-white]{J.\ Random Author}
+%\affiliation{Technische Universiteit Delft}
+%\coverimage{cover.jpg}
+%\titleoffsetx{10cm}
+%\titleoffsety{10cm}
+%\afiloffsetx{1cm}
+%\afiloffsety{18cm}
+%\covertext[tudelft-white]{
+%    \textbf{Cover Text} \\
+%    possibly \\
+%    spanning 
+%    multiple 
+%    lines
+%    \vfill
+%    ISBN 000-00-0000-000-0
+%}
+%\makecover
+
+%% Uncomment following 16 lines for a cover with a picture on the lower half only
+\title[tudelft-white]{Hall Effect}
+\subtitle[tudelft-black]{Modelleerplan}
+\author[tudelft-white]{Brian de Keijzer \\ Julia Norbart}
+\affiliation{De Haagse Hogeschool}
+\covertext[tudelft-white]{
+    \begin{tabular}{lll}
+    Vak & Onderzoeken 5 \\
+    Klas & NH2B \\
+    Docent & dr. ir. J. B. Oostinga \\
+    \\
+    \today
+    \end{tabular}
+}
+\setpagecolor{tudelft-cyan}
+\makecover[split]
+
+
+
+%% Include an optional title page.
+\input{template/title.tex}
+
+\input{hoofdstukken/abstract.tex}
+
+\tableofcontents
+
+%% Use Arabic numerals for the page numbers of the chapters.
+\mainmatter
+
+%% Import chapters
+\input{hoofdstukken/chapter-1-Inleiding.tex}
+\input{hoofdstukken/chapter-2-Theorie.tex}
+\input{hoofdstukken/chapter-3-Werkwijze.tex}
+\input{hoofdstukken/chapter-4-Resultaten.tex}
+\input{hoofdstukken/chapter-5-Conclusie.tex}
+\input{hoofdstukken/chapter-6-Discussie.tex}
+
+
+\nocite{*}
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+%% Use letters for the chapter numbers of the appendices.
+\appendix
+
+\input{appendix/appendix-a.tex}
+\input{appendix/python/pythonopmaak.tex} %vereist voor python opmaak
+\input{appendix/appendix-b.tex}
+
+
+\end{document}
