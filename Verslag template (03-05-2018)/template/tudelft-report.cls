@@ -535,8 +535,8 @@
         \ifodd\c@page%
         \else%
             \thispagestyle{empty}%
-            \vspace*{\fill}%
-            \newpage%
+            %\vspace*{\fill}%
+            %\newpage%
         \fi%
     \fi%
 }
