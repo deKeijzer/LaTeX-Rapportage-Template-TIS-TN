@@ -4,5 +4,5 @@ Een template in LaTeX welke gebruikt kan worden voor de rapportage bij de opleid
 ## Gebruik Overleaf / ShareLaTeX
 Download de repository als ZIP.  
 Pak (naar keuze) de folder `Verslag template (03-05-2018)` of `Voorbeeld verslag (concept) (04-06-2018)` uit.  
-ZIP vervolgens de zojuist uitgepakte folder.  
-Vervolgens upload je deze in Overleaf middels `New project` -> `Upload Project`.  
+ZIP vervolgens de zojuist uitgepakte folder, in een nieuw ZIP bestand.  
+Vervolgens upload je deze ZIP in Overleaf middels `New project` -> `Upload Project`.  
