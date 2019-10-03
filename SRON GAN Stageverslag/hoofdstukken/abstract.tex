@@ -1,0 +1,12 @@
+\chapter*{Summary}
+\setheader{Summary}
+
+
+\begin{flushright}
+{\makeatletter\itshape
+    \@author \\
+    Utrecht, \today
+\makeatother}
+\end{flushright}
+
+To get a better understanding of the forming scenarios and evolution of exoplanets, it is required to comprehend their atmospheric compositions. To do this, physically complex retrieval models are required. Retrievals with such complex models using traditional sampling methods usually takes hundreds to thousands of CPU core hours until convergence. The amount of computational power required creates a bottleneck for scientists. This will only be increasing with the amount of data coming available from future missions like ARIEL and JWST. The amount of time required for a retrieval can significantly be decreased by using machine learning methods like random forests and convolutional neural networks. A Generative Adversarial Network (GAN) is a type of neural network that has proven itself to be a reliable method for the analysis of complex physical phenomena. In recent work \cite{zingales2018exogan} a Deep Convolutional GAN (DCGAN) called ExoGAN has been developed, which together with semantic image inpainting performs retrievals in a matter of minutes. One of the drawbacks of ExoGAN is that the model has been trained on $10^9$ physically simple models containing no physics or chemistry. We propose SRON-GAN, a GAN which together with semantic image inpainting performs a retrieval on physically complex atmospheres in a matter of minutes. SRON-GAN is a DCGAN using a  Wasserstein GAN with Gradient Penalty (WGAN-GP) loss function. SRON-GAN will be trained on complex physical atmospheric models. These complex physical atmospheric models include molecular chemistry, self consistent temperature-pressure profile, and cloud formation. Once SRON-GAN is trained, it will be able to retrieve all the parameters it has been trained on from observed transmission spectra. All code is found on GitHub: https://github.com/deKeijzer/SRON-DCGAN .
