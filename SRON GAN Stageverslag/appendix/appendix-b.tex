@@ -1,0 +1,300 @@
+\chapter{Tables}
+
+
+
+\begin{table}[!htb]
+\centering
+\caption{The parameter boundaries used for the ExoGAN dataset generation. Each parameter has been sampled using 10 equally divided bins within the boundary range \cite{zingales2018exogan}.}
+\label{table:exogandatasetparameters}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\multicolumn{4}{|c|}{\textbf{ExoGAN dataset parameters}}                                      \\ \hline
+\textbf{Variable} & \textbf{lower bound}   & \textbf{upper bound}   & \textbf{sampling scale} \\ \hline
+$\mathrm{H_2O}$     & 10^{-8}                   & 10^{-1} & logarithmic             \\ \hline
+$\mathrm{CO_2}$     & 10^{-8}                   & 10^{-1} & logarithmic             \\ \hline
+$\mathrm{CO}$       & 10^{-8}                   & 10^{-1} & logarithmic             \\ \hline
+$\mathrm{CH_4}$     & 10^{-8}                   & 10^{-1} & logarithmic             \\ \hline
+$M_p$               & 0.8$M_J$                 & 2.0$M_J$                 & linear                  \\ \hline
+$R_p$               & 0.8$R_J$                 & 1.5$R_J$                 & linear                  \\ \hline
+$T_P$               & 1000 K                    & 2000 K                 & linear                  \\ \hline
+\end{tabular}
+\end{table}
+
+
+\begin{table}[!htb]
+\centering
+\caption{ExoGAN network architecture \cite{zingales2018exogan}. Where $\boldsymbol{X}$ is the input image, $m$ the batch size during training and $h_i$ the $i$-th hidden layer.}
+\label{table:exogan_network_architecture}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\multicolumn{1}{|c|}{\textbf{Layer}} & \multicolumn{1}{c|}{\textbf{Operation}} & \multicolumn{1}{c|}{\textbf{Output}} & \multicolumn{1}{c|}{\textbf{Dimension}}                                   \\ \hline
+\multicolumn{4}{|c|}{\textit{Discriminator}}                                                                                                                                                      \\ \hline
+$\boldsymbol{X}$                                    &                                         &                                      & $m \cdot 33 \cdot 33 \cdot 1$  \\ \hline
+$h_0$                                 & conv                                    & Leaky ReLU - batch normalisation              & $m \cdot 17 \cdot 17 \cdot 64$ \\ \hline
+$h_1$                                 & conv                                    & Leaky ReLU - batch normalisation              & $m \cdot 9 \cdot 9 \cdot 128$  \\ \hline
+$h_2$                                 & conv                                    & Leaky ReLU - batch normalisation              & $m \cdot 5 \cdot 5 \cdot 256$  \\ \hline
+$h_3$                                 & conv                                    & Leaky ReLU - batch normalisation              & $m \cdot 3 \cdot 3 \cdot 512$  \\ \hline
+$h_4$                                 & linear                                  & sigmoid                              & $m \cdot 1                                                  \\ \hline
+\multicolumn{4}{|c|}{\textit{Generator}}                                                                                                                                                          \\ \hline
+$\boldsymbol{z}$                                    &                                         &                                      & $m \cdot 100                                                \\ \hline
+$h_0$                                 & linear                                  & Leaky ReLU - batch normalisation              & $m \cdot 3 \cdot 3 \cdot 512$  \\ \hline
+$h_1$                                 & deconv                                  & Leaky ReLU - batch normalisation              & $m \cdot 5 \cdot 5 \cdot 256$  \\ \hline
+$h_2$                                 & deconv                                  & Leaky ReLU - batch normalisation              & $m \cdot 9 \cdot 9 \cdot 128$  \\ \hline
+$h_3$                                & deconv                                  & Leaky ReLU - batch normalisation              & $m \cdot 17 \cdot 17 \cdot 64$ \\ \hline
+$h_4$                                 & deconv                                  & sigmoid                              & $m \cdot 33 \cdot 33 \cdot 1$  \\ \hline
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[!htb]
+\centering
+\caption{The ExoGAN test set results \cite{zingales2018exogan}. Where $A(0 \sigma_\phi)$ represents the absolute accuracy of the prediction without taking into account the error bar of the retrieval.}
+\label{table:exogantestresults}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Variable} & \mathbf{$A(0 \sigma_\phi)$} & \textbf{$A(1\sigma_\phi)$} & \textbf{$A(2\sigma_\phi)$} \\ \hline
+$\mathrm{CO}$               & 62.8                                                    & 72.6                                                    & 78.2                                                    \\ \hline
+$\mathrm{CO_2}$               & 94.2                                                    & 96.6                                                    & 97.4                                                    \\ \hline
+$\mathrm{H_2O}$               & 89.6                                                    & 92.8                                                    & 93.9                                                    \\ \hline
+$\mathrm{CH_4}$               & 80.3                                                    & 88.2                                                    & 91.6                                                    \\ \hline
+$R_p$                & 100                                                     & 100                                                     & 100                                                     \\ \hline
+$M_p$                & 88.0                                                      & 89.7                                                    & 90.8                                                    \\ \hline
+$T_p$                & 90.4                                                    & 92.2                                                    & 93.2                                                    \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[!htb]
+\centering
+\caption{SRON-GAN network architectures. Where Conv2d is a 2 dimensional convolution, ConvTransose2d is a transposed 2 dimensional convolution, $m$ the batch size, $\boldsymbol{X}$ the input image and $h_i$ the $i$-th hidden layer. The dimensions are in the format of ($m$ $\cdot$ height $\cdot$ width $\cdot$ channels).}
+\label{table:srongan_architecture}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Layer} & \textbf{Operation} & \textbf{Output} & \textbf{Dimension}         \\ \hline
+\multicolumn{4}{|c|}{\textit{Discriminator}}                                       \\ \hline
+\textbf{X}     &                    &                 & $m \cdot 33 \cdot 33 \cdot 1$   \\ \hline
+$h_0$           & Conv2d             & Leaky ReLU      & $m \cdot 16 \cdot 16 \cdot 128$ \\ \hline
+$h_1$           & Conv2d             & Leaky ReLU      & $m \cdot 8 \cdot 8 \cdot 256$   \\ \hline
+$h_2$           & Conv2d             & Leaky ReLU      & $m \cdot 4 \cdot 4 \cdot 512$   \\ \hline
+$h_3$           & Conv2d             & sigmoid         & $m \cdot 1$                   \\ \hline
+\multicolumn{4}{|c|}{\textit{Generator}}                                           \\ \hline
+\textbf{z}     &                    &                 & $m \cdot 100$                 \\ \hline
+$h_0$           & ConvTranspose2d    & Leaky ReLU      & $m \cdot 4 \cdot 4 \cdot 128$   \\ \hline
+$h_1$           & ConvTranspose2d    & Leaky ReLU      & $m \cdot 8 \cdot 8 \cdot 256$   \\ \hline
+$h_2$           & ConvTranspose2d    & Leaky ReLU      & $m \cdot 16 \cdot 16 \cdot 512$ \\ \hline
+$h_3$           & ConvTranspose2d    & -               & $m \cdot 32 \cdot 32 \cdot 1$   \\ \hline
+\end{tabular}
+\end{table}
+
+
+
+
+
+\begin{table}[!htb]
+\caption{The ExoGAN hyperparameters. Where Equation A5 refers to one of the equations used by Adam. Table source: \cite{zingales2018exogan}.}
+\label{table:exogan_hyperparams}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{|c|c|c|l|}
+
+\hline
+\multirow{2}{*}{\textbf{Hyper-parameter}} & \multicolumn{2}{c|}{\textit{Stage}}                             & \multicolumn{1}{c|}{\multirow{2}{*}{\textbf{Description}}}                                                                                      \\ \cline{2-3}
+                                          & \textbf{Training}              & \textbf{Prediction}            & \multicolumn{1}{c|}{}                                                                                                                           \\ \hline
+batch size                                & 64                             & 1024                           & \begin{tabular}[c]{@{}l@{}}Number of spectral samples used at each training/prediction iteration for\\   both networks\end{tabular}             \\ \hline
+$\boldsymbol{z}$                                         & 100                            & 100                            & Generator gaussian prior distribution                                                                                                           \\ \hline
+$\eta$                                      & $2\cdot10^{-4}$ & $2\cdot10^{-1}$ & Learning rate for the Adam optimizer                                                                                                            \\ \hline
+$\beta_1$                                   & 0.5                            & 0.9                            & \begin{tabular}[c]{@{}l@{}}Exponential decay rate for the first moment estimates in the Adam\\   optimizer.\end{tabular}                        \\ \hline
+$\beta_2$                                   & -                              & 0.999                          & \begin{tabular}[c]{@{}l@{}}Exponential decay rate for the second moment estimates in the Adam\\   optimizer.\end{tabular}                       \\ \hline
+$\lambda$                                    & -                              & 0.1                            & \begin{tabular}[c]{@{}l@{}}Hyper-parameter that controls the importance of the contextual loss\\   compared to the perceptual loss\end{tabular} \\ \hline
+$\epsilon$                                   & -                              & $10^{-8}$         & Constant which prevents the denominator in Equation A5 to be zero.                                                                              \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+\begin{table}[!htb]
+\caption{The SRON-GAN hyperparameters for both model training and the semantic image inpainting process.}
+\label{table:srongan_hyperparams}
+\centering
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{|c|c|c|l|}
+\hline
+\multicolumn{1}{|l|}{\multirow{2}{*}{\textbf{Hyper-parameter}}} & \multicolumn{2}{c|}{\textit{Stage}}     & \multicolumn{1}{c|}{\multirow{2}{*}{\textbf{Description}}}                                                                                      \\ \cline{2-3}
+\multicolumn{1}{|l|}{}                                          & \textbf{Training} & \textbf{Prediction} & \multicolumn{1}{c|}{}                                                                                                                           \\ \hline
+G iters                                                         & 1                 &   -                  & Number of times the generator is trained per batch.                                                                                             \\ \hline
+D iters                                                         & 1                 &      -               & Number of times the discriminator is trained per batch.                                                                                         \\ \hline
+batch size                                                      & 64                & 1                   & Batch size                                                                                                                                      \\ \hline
+$\eta$                                                        & $2\cdot10^{-4}$          & $10^{-1}$            & Learning rate used for Adam.                                                                                                                     \\ \hline
+$\beta_1$                                                           & 0.5               &  -                   & \begin{tabular}[c]{@{}l@{}}Exponential decay rate for the first moment estimates in the Adam\\   optimizer.\end{tabular}                        \\ \hline
+$\beta_2$                                                           & 0.9               &   -                  & \begin{tabular}[c]{@{}l@{}}Exponential decay rate for the second moment estimates in the Adam\\   optimizer.\end{tabular}                       \\ \hline
+$\lambda_1$                                                          & 10                &  -                   & Scale factor for gradient penalty used in Equation \ref{eq:wgangploss}.                                                                                                              \\ \hline
+nz                                                              & 100               & 100                 & Latent vector size                                                                                                                              \\ \hline
+$\lambda_2$                                                          &   -                & $10^{-1}$            & \begin{tabular}[c]{@{}l@{}}Hyperparameter that controls the importance of the contextual loss\\   compared to the perceptual loss, used in Equation \ref{eq:inpaintingloss}. \end{tabular} \\ \hline
+n iters                                                        &     -              & 2000                & \begin{tabular}[c]{@{}l@{}}Number of iterations per image in the inpainting\\   process.\end{tabular}                     \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+
+
+
+
+\begin{table}[!htb]
+\centering
+\caption{The global minimum and maximum values of the atmospheric model features.}
+\label{table:min_max_values__models_features}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\multicolumn{4}{|c|}{\begin{tabular}[c]{@{}c@{}}Complex physical\\ models\end{tabular}} \\\hline
+\textbf{Feature}        & \textbf{Global minimum}        & \textbf{Global maximum}        & \textbf{Unit}  \\ \hline
+Mp               & 0.012                       & 10 & $\mathrm{M_J}$                      \\ \hline
+T                & 117.9                       & 4492 & K                     \\ \hline
+$\mathrm{CH_4}$              & -11.6                       & -2.60 & -                      \\ \hline
+Rp               & 0.131                       & 3.00 & $\mathrm{R_J}$                      \\ \hline
+$\mathrm{H2O}$              & -8.6                       & -1.6 & -                      \\ \hline
+$\mathrm{CO2}$              & -39                       & -3.9 & -                      \\ \hline
+$\mathrm{CO}$              & -46                    & -2.6 & -             \\   \hline
+Dplanet                 & -2                     & -0.7 & AU                    \\ \hline
+betaT                   & 0.10                     & 0.25 & -                     \\ \hline
+TeffP                   & 1.0                     & 2.4 & K                     \\ \hline
+fdry                    & -1                   & 1 & -                      \\ \hline
+fwet                    & -1                   & 1 & -                     \\ \hline
+cloud1:Sigmadot         & -19                    & -11 & $\mathrm{g \cdot cm^{-2} s^{-1}}$                   \\ \hline
+cloud1:Kzz              & 6.0                      & 10 & $\mathrm{cm^2 s^{-1}}$                     \\ \hline
+f\_dry                  & -1                   & 1 & -                      \\ \hline
+f\_wet                  & -1                   & 1 & -                     \\ \hline
+COratio                 & 0.0580                   & 1.16 & -                      \\ \hline
+metallicity             & -0.375                    & 0.826 & -                       \\ \hline
+P                       & -2.66                    & 2.79 & bar                     \\ \hline
+$\mathrm{SO_2}$                     & -73                    & -5.7 & -                    \\ \hline
+$\mathrm{NH_3}$                     & -10                    & -3.9 & -                    \\ \hline
+HCN                     & -62                    & -4.9 & -                    \\ \hline
+$\mathrm{C_2H_2}$                    & -99                    & -4.2 & -                    \\ \hline
+$\mathrm{C_2H_4}$                    & -59                    & -7.0 & -                    \\ \hline
+$\mathrm{H_2}$                      & -0.91                   & -0.068 & -                    \\ \hline
+He                      & -1.1                    & -0.83 & -                    \\ \hline
+Na                      & -53                    & -4.5 & -                    \\ \hline
+K                       & -56                    & -5.7 & -                     \\ \hline
+TiO                     & -58                    & -5.9 & -                    \\ \hline
+VO                      & -42                    & -7.0 & -                    \\ \hline
+
+
+\multicolumn{4}{|c|}{\begin{tabular}[c]{@{}c@{}}Simple physical\\ models\end{tabular}} \\ \hline
+Abundances                      & -8                    & -1 & -                   \\ \hline
+Mp                      & 0.8                    & 2.0 & $\mathrm{M_J}$                   \\ \hline
+Rp                      & 0.8                    & 1.5 &  $\mathrm{R_J}$                    \\ \hline
+Tp                      & 1000                    & 2000 & K                    \\ \hline
+
+
+
+\end{tabular}
+\end{table}
+
+
+
+
+
+
+
+
+
+\begin{table}[!htb]
+\centering
+\caption{The spectrum bins with their lower and upper bounds.}
+\label{table:spectrum_bins_ranges}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Bin number} & \textbf{Lower bound} $[\matrm{\mu m}]$ & \textbf{Upper bound} $[\matrm{\mu m}]$ \\ \hline
+1                   & 0.300                  & 0.440                 \\ \hline
+2                   & 0.440                 & 0.495                \\ \hline
+3                   & 0.495                & 0.535                \\ \hline
+4                   & 0.535                & 0.580                 \\ \hline
+5                   & 0.580                 & 0.635                \\ \hline
+6                   & 0.635                & 0.710                 \\ \hline
+7                   & 0.710                 & 0.790                 \\ \hline
+8                   & 0.790                 & 0.900                  \\ \hline
+9                   & 0.900                  & 1.080                 \\ \hline
+10                  & 1.080                 & 1.300                  \\ \hline
+11                  & 1.300                  & 1.700                  \\ \hline
+12                  & 1.700                  & 2.350                 \\ \hline
+13                  & 2.350                 & 4.000                    \\ \hline
+14                  & 4.000                    & 6.000                    \\ \hline
+15                  & 6.000                    & 10.00                   \\ \hline
+16                  & 10.00                   & 14.00                   \\ \hline
+17                  & 14.00                   & 16.00                   \\ \hline
+\end{tabular}
+\end{table}
+
+
+
+
+\begin{table}[!htb]
+\centering
+\caption{The star radii of the host stars from the exoplanets which are analysed \cite{rsun_source}}
+\label{table:host_star_radii}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Star} & \textbf{Radius} [R$_{\odot}$] \\ \hline
+WASP-17       & 1.38                         \\ \hline
+WASP-39       & 0.895                        \\ \hline
+HD209458      & 1.20                          \\ \hline
+WASP-19       & 1.00                        \\ \hline
+HAT-P-1       & 1.20                          \\ \hline
+WASP-31       & 1.24                         \\ \hline
+WASP-12       & 1.66                        \\ \hline
+HAT-P-12      & 0.700                          \\ \hline
+HD189733      & 0.800                          \\ \hline
+WASP-6        & 0.870                         \\ \hline
+\end{tabular}
+\end{table}
+
+
+
+
+\begin{table}[!htb]
+\centering
+\caption{The SRON-GAN retrieval results on real observations.}
+\label{table:real_result}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{|l|c|c|c|c|c|c|c|}
+\hline
+\multicolumn{1}{|c|}{\textbf{Planet name}} & \textbf{M$_p$} [M$_J$] & \textbf{T} [K] & \textbf{R$_p$} [R$_J$] & \textbf{CH$_4$}    & \textbf{H$_2$O}    & \textbf{CO$_2$}    & \textbf{CO}      \\ \hline
+WASP-17b                                & 5.11 $\pm$ 3.24           & 1190 $\pm$ 366      & 1.46 $\pm$ 0.295           & -4.6 $\pm$ 0.86 & -4.0 $\pm$ 0.68 & -8.5 $\pm$ 0.72 & -4.8 $\pm$ 1.2  \\ \hline
+WASP-39b                                & 4.75 $\pm$ 2.53           & 1480 $\pm$ 311      & 1.06 $\pm$ 0.349           & -5.0 $\pm$ 0.15 & -3.3 $\pm$ 0.22 & -8.3 $\pm$ 2.0 & -5.2 $\pm$ 3.4  \\ \hline
+HD209458b                               & 3.74 $\pm$ 2.27           & 1160 $\pm$ 390      & 1.50 $\pm$ 0.331           & -5.1 $\pm$ 0.31 & -3.2 $\pm$ 0.51 & -11 $\pm$ 5.9 & -9.8 $\pm$ 7.6 \\ \hline
+WASP-19b                                & 4.15 $\pm$ 2.59           & 1000 $\pm$ 235      & 1.30 $\pm$ 0.334           & -4.6 $\pm$ 0.90 & -2.80 $\pm$ 0.22 & -7.6 $\pm$ 3.1 & -5.8 $\pm$ 4.9  \\ \hline
+HAT-P-1b                                & 2.90 $\pm$ 2.53           & 1640 $\pm$ 347      & 2.20 $\pm$ 0.493           & -5.1 $\pm$ 0.41  & -3.0 $\pm$ 0.43 & -6.9 $\pm$ 0.66 & -3.5 $\pm$ 0.31  \\ \hline
+WASP-31b                                & 4.12 $\pm$ 3.01           & 1140 $\pm$ 369      & 1.20 $\pm$ 0.222           & -4.8 $\pm$ 0.69 & -3.5 $\pm$ 0.95 & -12 $\pm$ 5.0 & -10 $\pm$ 6.5 \\ \hline
+WASP-12b                                & 4.35 $\pm$ 2.48           & 1290 $\pm$ 371      & 2.21 $\pm$ 0.418           & -5.0 $\pm$ 1.2 & -3.6 $\pm$ 0.95 & -8.3 $\pm$ 1.9 & -4.8 $\pm$ 1.5  \\ \hline
+HAT-P-12b                               & 3.80 $\pm$ 1.45           & 759 $\pm$ 74.7     & 1.05 $\pm$ 0.516           & -3.6 $\pm$ 0.62 & -3.3 $\pm$ 0.23 & -7.2 $\pm$ 0.48 & -4.9 $\pm$ 0.96  \\ \hline
+HD189733b                               & 5.08 $\pm$ 2.55           & 118 $\pm$ 230      & 1.08 $\pm$ 0.436           & -5.1 $\pm$ 0.60 & -3.2 $\pm$ 0.60 & -8.3 $\pm$ 2.6 & -5.5 $\pm$ 3.3  \\ \hline
+WASP-6b                                 & 4.42 $\pm$ 2.66           & 1090 $\pm$ 310      & 1.31 $\pm$ 0.133           & -4.7 $\pm$ 1.0 & -3.6 $\pm$ 0.69 & -7.1 $\pm$ 0.75 & -3.6 $\pm$ 0.83  \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+
+
+
+\begin{table}[!htb]
+\centering
+\caption{The ARCiS retrieval results on real observations.}
+\label{table:real_result_arcis}
+\resizebox{\columnwidth}{!}{% 
+\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|c|c|c|} \hline
+
+
+         \textbf{Planet name} & \textbf{M_p} [M$_J$]  & \textbf{R_p} [R$_J$] & \textbf{dR}  & \textbf{T} [K] & \textbf{dT}    & \textbf{H$_2$O} & \textbf{d[H$_2$O]} & \textbf{CH$_4$} & \textbf{d[CH$_4$]}  & \textbf{CO} & \textbf{d[CO]} & \textbf{CO$_2$} & \textbf{d[CO$_2$]}   \\ \hline
+
+     WASP-17b &  0.477  & 1.76  & 0.0392  & 1400 &  158  & -3.21 & 0.94   & -7.5  &  1.0   & -5.5  &  2.0  & -7.2  &  1.2 \\ \hline         
+     WASP-39b &  0.281  & 1.31  & 0.00844 & 887  &  85.2 & -1.33 & 0.45   & -7.2  &  1.1   & -1.2  &  0.65 & -6.4  &  1.6 \\ \hline
+    HD209458b &  0.714  & 1.37  & 0.00774 & 942  &  118  & -1.53 & 0.84   & -4.2  &  1.8   & -4.7  &  2.6  & -6.7  &  1.4 \\ \hline     
+     WASP-19b &  1.14   & 1.37  & 0.0213  & 1780 &  430  & -3.42 & 1.3    & -6.9  &  1.4   & -5.3  &  2.0  & -5.9  &  1.9 \\ \hline    
+     HAT-P-1b &  0.525  & 1.36  & 0.0158  & 624  &  255  & -2.20 & 1.4    & -6.8  &  1.3   & -5.8  &  2.0  & -7.0  &  1.4 \\ \hline     
+     WASP-31b &  0.478  & 1.50  & 0.0436  & 883  &  513  & -4.28 & 1.7    & -6.9  &  1.5   & -6.3  &  1.8  & -7.3  &  1.5 \\ \hline
+     WASP-12b &  1.47   & 1.91  & 0.0185  & 1006 &  221  & -5.10 & 2.1    & -6.5  &  1.6   & -5.6  &  2.0  & -6.3  &  1.7 \\ \hline    
+    HAT-P-12b &  0.201  & 0.865 & 0.0171  & 917  &  110  & -5.99 & 1.7    & -6.8  &  1.4   & -5.6  &  1.9  & -5.8  &  1.6 \\ \hline
+    HD189733b &  1.15   & 1.12  & 0.00890 & 2086 &  101  & -3.47 & 0.80   & -6.7  &  1.3   & -5.5  &  1.9  & -7.1  &  1.1 \\ \hline
+      WASP-6b &  0.485  & 1.166 & 0.0197  & 889  &  179  & -5.82 & 1.9    & -6.7  &  1.4   & -5.9  &  2.0  & -6.9  &  1.4 \\ \hline    
+
+\end{tabular}%
+}
+\end{table}
